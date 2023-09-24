@@ -21,3 +21,70 @@ function setHeader(){
 document.addEventListener("DOMContentLoaded", function(){
     setHeader();
 })
+
+
+class Task{
+    constructor(id, taskMessage){
+        this.id = id;
+        this.message = taskMessage;
+    }
+}
+
+window.allTasks = [];
+
+function addTask(task){
+    let newTask = new Task(allTasks.length,task);
+    allTasks.push(newTask);
+
+    const listItem = document.createElement("li");
+    const taskParagraph = document.createElement('p');
+    taskParagraph.textContent = task;
+    listItem.appendChild(taskParagraph);
+
+    const taskList = document.getElementById("toDoTaskList");
+    taskList.appendChild(listItem);
+}
+
+function removeTask(number) {
+    const taskList = document.getElementById("toDoTaskList");
+    if (number >= 1 && number <= allTasks.length) {
+      let currentIndex = 0;
+      let listItemToRemove;
+      for (let i = 0; i < taskList.childNodes.length; i++) {
+        const node = taskList.childNodes[i];
+        if (node.nodeType === 1) {
+          currentIndex++;
+          if (currentIndex === number) {
+            listItemToRemove = node;
+            break;
+          }
+        }
+      }    
+      if (listItemToRemove) {
+        allTasks.splice(number - 1, 1);
+        taskList.removeChild(listItemToRemove);
+      }
+    }
+  }
+  
+
+const taskForm = document.getElementById("taskForm");
+taskForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const taskInput = document.getElementById("task");
+  const taskText = taskInput.value.trim();
+  if (taskText !== "") {
+    addTask(taskText);
+    taskInput.value = "";
+  }
+});
+
+const deleteTaskForm = document.getElementById("deleteTaskForm");
+deleteTaskForm.addEventListener("submit", function (event){
+    event.preventDefault();
+    const input = document.getElementById('delTask');
+    const taskToDel = Number(input.value.trim());
+    removeTask(taskToDel);
+    input.value = "";
+});
+

@@ -11,17 +11,36 @@
             <h1 id="date"></h1>
         </header>
         <main>
-            <form>
-                
-            </form>
-            <div id="box">
-                <p class="box-title">To-Do</p>
+            <p>Create Task</p>
+            <div>
+                <form id="taskForm">
+                    <label for="task">Task:</label><br>
+                    <input type="text" id="task"><br>
+                    <input type="submit" value="Submit">
+                </form>
             </div>
-            <div id="box">
-                <p class="box-title">In-Progress</p>
+
+            <p>Delete Task</p>
+            <div>
+                <form id="deleteTaskForm">
+                    <label for="delTask">Task Number:</label><br>
+                    <input type="text" id="delTask"><br>
+                    <input type="submit" value="Submit">
+                </form>
             </div>
-            <div id="box">
-                <p class="box-title">Done</p>
+            <p></p>
+            <div id="box-container">
+                <div id="box">
+                    <p class="box-title">To-Do</p>
+                    <ol id="toDoTaskList">
+                    </ol>
+                </div>
+                <div id="box">
+                    <p class="box-title">In-Progress</p>
+                </div>
+                <div id="box">
+                    <p class="box-title">Done</p>
+                </div>
             </div>
         </main>
         
