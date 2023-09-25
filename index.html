@@ -11,23 +11,34 @@
             <h1 id="date"></h1>
         </header>
         <main>
-            <p>Create Task</p>
-            <div>
+            <div id="buttons">
+                <p>Create Task</p>
+                <div>
                 <form id="taskForm">
-                    <label for="task">Task:</label><br>
+                    <label for="task"></label><br>
                     <input type="text" id="task"><br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Create">
                 </form>
+                </div>
+                <p>Delete Task</p>
+                <div>
+                <form id="deleteTaskForm">
+                    <label for="delTask"></label><br>
+                    <input type="text" id="delTask"><br>
+                    <input type="submit" value="Delete">
+                </form>
+                </div>
+                <p>Move Task</p>
+                <div>
+                <form id="moveTaskForm">
+                    <label for="moveTask"></label><br>
+                    <input type="text" id="moveTask"><br>
+                    <input type="submit" value="Move">
+                </form>
+                </div>
             </div>
 
-            <p>Delete Task</p>
-            <div>
-                <form id="deleteTaskForm">
-                    <label for="delTask">Task Number:</label><br>
-                    <input type="text" id="delTask"><br>
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
+    
             <p></p>
             <div id="box-container">
                 <div id="box">
